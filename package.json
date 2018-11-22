@@ -1,0 +1,17 @@
+{
+  "name": "auth_node_mongodb",
+  "version": "1.0.0",
+  "description": "authentication",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "christophe",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.13",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}

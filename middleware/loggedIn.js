@@ -1,4 +1,3 @@
-let flash = require('connect-flash')
 
 let loggedIn = (req, res, next) => {
   if (req.user) {

@@ -6,14 +6,18 @@ let flash = require('connect-flash')
 let LocalStrategy = require('passport-local').Strategy
 let mongoose = require('mongoose')
 let passport = require('passport')
+const path = require('path')
 let session = require('express-session')
+
+require('dotenv').config()
+
 
 let {User} = require('./models/User')
 let {PasswordValidator} = require('./models/PasswordValidator')
 let {loggedIn} = require('./middleware/loggedIn')
 
-APP_ID = "215367576020942"
-KEY = "9a59a1d25ea52582e783895614afbcc2"
+const APP_ID = process.env.APP_ID
+const KEY = process.env.KEY
 
 const app = express()
 
@@ -30,6 +34,8 @@ app.use(flash())
 
 app.engine('.hbs', exphbs({defaultLayout: 'main'}))
 app.set('view engine', '.hbs')
+
+app.use(express.static(path.join(__dirname, 'public')))
 
 mongoose.connect('mongodb://localhost/user', { useNewUrlParser: true })
 mongoose.set('useCreateIndex', true)

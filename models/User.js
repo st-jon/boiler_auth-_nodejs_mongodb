@@ -35,8 +35,10 @@ let UserSchema = new mongoose.Schema({
   }, 
   password:{
     type: String,
-    required: true,
-    minlength: 8,
+  },
+  facebook: {
+    id: String,
+    token: String,
   },
 })
 
@@ -56,7 +58,7 @@ UserSchema.statics.comparePassword = function (candidatePassword, hash, callback
       res.sendStatus(500)
       return
     }
-    	callback(null, isMatch)
+    callback(null, isMatch)
 	})
 }
 

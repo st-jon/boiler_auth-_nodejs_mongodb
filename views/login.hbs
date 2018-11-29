@@ -1,23 +1,27 @@
 <body>
-  {{#if error}}
-      <div class="alert alert-danger">{{error}}</div>
-  {{/if}}
-  {{#if message}}
-      <div class="alert alert-danger">{{message}}</div>
-  {{/if}}
-  <form action="/login" method="post">
-    <div>
-        <label>Username or email:</label>
-        <input type="text" name="username"/>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password"/>
-    </div>
-    <div>
-        <input type="submit" value="Log In"/>
+  <form action="/login" class="form" method="post">
+    <div class="container">
+        <div class="form-group">
+            <input class="input" type="text" name="username" id="username" placeholder="username or email" autocomplete="off"/>
+            <label for="username" class="animated-label">username or email</label>
+        </div>
+        <div class="form-group">
+            <input class="input" type="password" name="password" id="password" placeholder="password"/>
+            <label for="password" class="animated-label">password</label>
+        </div>
+            {{#if error}}
+                <div class="alert alert-danger">{{error}}</div>
+            {{/if}}
+            {{#if message}}
+                <div class="alert">{{message}}</div>
+            {{/if}}
+        <div class="btn__container">
+            <input type="submit" class="btn" value="Log In"/>
+            <div class="btn">
+                <a class="loginBtn loginBtn--facebook" href="/auth/facebook">Login with Facebook</a>
+            </div>   
+        </div>
     </div>
   </form> 
-  <a href="/auth/facebook">Login with Facebook</a>
 </body>
 </html>

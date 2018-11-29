@@ -49,16 +49,14 @@ db.once('open', function() {
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({$or: [{ username: username }, {email: username}]}, (err, user) => {
-      if (err) {
-        console.log(err)
-        res.sendStatus(500)
-        return
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username' })
+      }
+      if (user === err) {
+        return done(null, false, { message: 'Hu ho ... Something went terrribly wrong ...' })
       }
       if (!user.password) {
         return done(null, false, { message: `${user.username}, must login using facebook` })
-      }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username' })
       }
       User.comparePassword(password, user.password, function (err, isMatch) {
         if (err) {

@@ -53,12 +53,14 @@ body, html {
     width: 30%;
     margin-top: 10vh;
     border: none;
+    outline: none;
     font-size: 3rem;
     cursor: pointer;
     transition: all .2s;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
     transform: translateY(-.15rem);
     text-shadow: 6px 6px 40px rgba(29, 29, 29, .2);
 }

@@ -30,7 +30,7 @@ body, html {
     font-size: 2em;
     align-self: center;
     border: none;
-    border-bottom: 1px solid #BBB
+    border-bottom: 1px solid #BBB;
 }
 
 .input:focus {
@@ -60,13 +60,13 @@ body, html {
 
 .btn:hover {
     transform: translateY(-.15rem);
-    text-shadow: 6px 6px 14px rgba(29, 29, 29, .3);
+    text-shadow: 6px 6px 40px rgba(29, 29, 29, .2);
 }
 
 .btn:active {
     outline: none;
     transform: translateY(.15rem);
-    text-shadow: 6px 3px 7px rgba(29, 29, 29, .4);
+    text-shadow: 6px 6px 40px rgba(29, 29, 29, .3);
 }
 
 .alert {
@@ -140,8 +140,8 @@ body, html {
 
 .animated-label {
     position: absolute;
-    top: 20px;
-    left: 0;
+    top: 45px;  /* then 20px */
+    left: 20px; /* then 0px */
     bottom: 0;
     z-index: 2;
     width: 100%;
@@ -151,20 +151,27 @@ body, html {
     opacity: 0.5;
     cursor: text;
     opacity: 0;
-    transition: 0.5s ease all;
+    transition: all .2s ease ;
     margin: 0;
 }
 
-.input:focus::-webkit-input-placeholder { opacity: 0; }
-.input:focus:-moz-placeholder { opacity: 0; }
+.input::-webkit-input-placeholder {opacity: 0.8; transition: all .2s ease}
+.input:focus:-moz-placeholder {opacity: 0.8; transition: all .2s ease}
+
+.input:focus::-webkit-input-placeholder { opacity: 0; font-size: 1rem; transform: translate(-15px, -25px) }
+.input:focus:-moz-placeholder { opacity: 0; font-size: 1rem; transform: translate(-15px, -25px) }
 
 .input:focus + .animated-label {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
+    top: 20px;
+    left: 0px;
     opacity: .8;
 }
 
 .input:not(:placeholder-shown) + .animated-label {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
+    top: 20px;
+    left: 0px;
     opacity: .8;
 }
 
